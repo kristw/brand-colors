@@ -13,7 +13,7 @@ class Cube extends React.Component {
     const { className } = this.props;
     return (
       <div className={className}>
-        under construction
+        Cell
       </div>
     );
   }
