@@ -1,6 +1,7 @@
 import Cube from './Cube';
 import PropTypes from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
 const propTypes = {
   className: PropTypes.string,
@@ -10,6 +11,15 @@ const defaultProps = {
   className: '',
   cells: [],
 };
+
+const Container = styled.div`
+  padding: 30px;
+`;
+
+const Row = styled.div`
+  height: 150px;
+  margin: 20px 0;
+`;
 
 class Grid extends React.Component {
   render() {
@@ -23,15 +33,15 @@ class Grid extends React.Component {
     }
 
     return (
-      <div className={className}>
+      <Container className={className}>
         {rows.map(r => (
-          <div className="row">
+          <Row>
             {r.map(cell => (
               <Cube cell={cell} />
             ))}
-          </div>
+          </Row>
         ))}
-      </div>
+      </Container>
     );
   }
 }

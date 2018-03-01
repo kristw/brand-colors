@@ -2,7 +2,73 @@
   {
     "name": "Twitter",
     "link": "https://twitter.com",
-    "colors": ["#55acee"],
+    "colors": [
+      "#55acee"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Airbnb",
+    "link": "https://airbnb.com",
+    "colors": [
+      "#fd5c63"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Facebook",
+    "link": "https://facebook.com",
+    "colors": [
+      "#3b5998"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Instacart",
+    "link": "https://instacart.com",
+    "colors": [
+      "#60ab59"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Lyft",
+    "link": "https://lyft.com",
+    "colors": [
+      "#ff00bf"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Medium",
+    "link": "https://medium.com",
+    "colors": [
+      "#00ab6c"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Netflix",
+    "link": "https://netflix.com",
+    "colors": [
+      "#e50914"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Snapchat",
+    "link": "https://snapchat.com",
+    "colors": [
+      "#fffc00"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Uber",
+    "link": "https://uber.com",
+    "colors": [
+      "#09091a"
+    ],
     "logo": "test.png"
   }
 ]
