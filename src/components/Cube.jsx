@@ -10,23 +10,30 @@ const defaultProps = {
   className: '',
 };
 
-const Container = styled.div`
+const Wrap = styled.div`
 	display: inline-block;
-	text-align: center;
-  margin: 0 10px;
+  perspective: 1500px;
+  margin: 10px;
+`;
+
+const Container = styled.div`
+  position: relative;
   width: 150px;
 	height: 150px;
+	text-align: center;
 	transition: transform .5s; /* Animate the transform properties */
-	transform-style: preserve-3d; /* <-NB */
+  transform-style: preserve-3d; /* <-NB */
+  // transform: rotateY(-10deg);
 
   &:hover {
-    transform: rotateX(89deg); /* Text bleed at 90º */
+    transform: rotateX(85deg); /* Text bleed at 90º */
   }
 `;
 
 const Side = styled.div`
+  // border: 5px solid #000;
   background: rgb(255, 255, 255);
-	height: 150px;
+	height: 100%;
 `;
 
 const Front = styled(Side)`
@@ -34,9 +41,8 @@ const Front = styled(Side)`
   transform: translateZ(75px);
 `;
 
-const Back = styled(Side)`
-  // border: 1px solid rgba(196, 196, 196, 1);
-  background: #f0f0f0;
+const Down = styled(Side)`
+  background: #fefefe;
   transform: rotateX(-90deg) translateZ(-75px);
 `;
 
@@ -49,16 +55,18 @@ class Cube extends React.Component {
   render() {
     const { className, cell } = this.props;
     return (
-      <Container className={className}>
-        <Front>
-          <ColorPane colors={cell.colors} />
-        </Front>
-        <Back>
-          <BackContent>
-            {cell.name}
-          </BackContent>
-        </Back>
-      </Container>
+      <Wrap className={className}>
+        <Container>
+          <Front>
+            <ColorPane colors={cell.colors} />
+          </Front>
+          <Down>
+            <BackContent>
+              {cell.name}
+            </BackContent>
+          </Down>
+        </Container>
+      </Wrap>
     );
   }
 }

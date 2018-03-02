@@ -13,7 +13,7 @@ const defaultProps = {
 };
 
 const Container = styled.div`
-  padding: 30px;
+  padding: 0px;
 `;
 
 const Row = styled.div`

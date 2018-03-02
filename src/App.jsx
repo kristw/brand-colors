@@ -9,8 +9,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>What companies are these colors?</h1>
+        <h1>Guess companies <br /> from the colors</h1>
         <Grid cells={brands} />
+        <div className="footer">
+          &copy; 2018 &mdash; Krist Wongsuphasawat /
+          <a href="https://twitter.com/kristw">@kristw</a>
+        </div>
       </div>
     );
   }
