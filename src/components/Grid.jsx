@@ -7,11 +7,13 @@ const propTypes = {
   className: PropTypes.string,
   cells: PropTypes.array,
   onCellClick: PropTypes.func,
+  onCellScore: PropTypes.func,
 };
 const defaultProps = {
   className: '',
   cells: [],
   onCellClick() {},
+  onCellScore() {},
 };
 
 const Container = styled.div`
@@ -19,13 +21,14 @@ const Container = styled.div`
 `;
 
 const Row = styled.div`
+  vertical-align: top;
   height: 150px;
   margin: 20px 0;
 `;
 
 class Grid extends React.Component {
   render() {
-    const { className, cells, onCellClick } = this.props;
+    const { className, cells, onCellClick, onCellScore } = this.props;
     const dim = Math.ceil(Math.sqrt(cells.length));
     const rows = [];
     const len = cells.length;
@@ -41,7 +44,8 @@ class Grid extends React.Component {
             {r.map((cell, j) => (
               <Cube
                 cell={cell}
-                onClick={e => onCellClick(i * dim + j)}
+                onClick={e => { onCellClick(i * dim + j) }}
+                onScore={score => { onCellScore(i * dim + j, score); }}
               />
             ))}
           </Row>

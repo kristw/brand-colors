@@ -5,10 +5,14 @@ import { connect } from 'react-redux';
 function mapStateToProps(state) {
   const {
     cells,
+    seen,
+    score,
   } = state;
 
   return {
     cells,
+    seen,
+    score,
   };
 }
 
@@ -20,6 +24,9 @@ function mapDispatchToProps(dispatch) {
     onCellClick(index) {
       dispatch(Actions.flip(index));
     },
+    onCellScore(index, score) {
+      dispatch(Actions.score({ index, score }));
+    }
   };
 }
 

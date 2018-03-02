@@ -24,15 +24,15 @@ class App extends Component {
   }
 
   render() {
-    const { cells, onCellClick } = this.props;
+    const { cells, onCellClick, onCellScore, seen, score } = this.props;
     return (
       <div className="App">
         <h1>Guess companies <br /> from the colors</h1>
+        <h2>{score} / {seen}</h2>
         <Grid
           cells={cells}
-          onCellClick={ index => {
-            onCellClick(index);
-          }}
+          onCellClick={onCellClick}
+          onCellScore={onCellScore}
         />
         <div className="footer">
           &copy; 2018 &mdash; Krist Wongsuphasawat /

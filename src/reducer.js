@@ -6,6 +6,8 @@ const brands = shuffle(brandsData);
 const PAGE_SIZE = 9;
 
 const reducer = (state = {
+  seen: 0,
+  score: 0,
   brands,
   index: 0,
   cells: [],
@@ -20,7 +22,11 @@ const reducer = (state = {
     case Types.BUILD_BOARD:
       const cells = state.brands
         .slice(state.index, state.index + PAGE_SIZE)
-        .map(brand => ({ open: false, brand }));
+        .map(brand => ({
+          open: false,
+          score: null,
+          brand
+        }));
       nextState = {
         ...state,
         cells,
@@ -28,16 +34,34 @@ const reducer = (state = {
       };
       break;
     case Types.FLIP:
-      const index = action.payload;
-      const newCells = state.cells.concat();
-      newCells[index] = {
-        ...state.cells[index],
-        open: true,
-      };
-      nextState = {
-        ...state,
-        cells: newCells
-      };
+      {
+        const index = action.payload;
+        const newCells = state.cells.concat();
+        newCells[index] = {
+          ...state.cells[index],
+          open: true,
+        };
+        nextState = {
+          ...state,
+          cells: newCells
+        };
+      }
+      break;
+    case Types.SCORE:
+      {
+        const { index, score } = action.payload;
+        const newCells = state.cells.concat();
+        newCells[index] = {
+          ...state.cells[index],
+          score,
+        };
+        nextState = {
+          ...state,
+          seen: state.seen + 1,
+          score: state.score + score,
+          cells: newCells
+        };
+      }
       break;
   }
   return nextState;
