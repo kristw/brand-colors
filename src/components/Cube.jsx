@@ -1,3 +1,4 @@
+import ColorPane from './ColorPane';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
@@ -24,21 +25,24 @@ const Container = styled.div`
 `;
 
 const Side = styled.div`
-	background: rgb(255, 255, 255);
-	border: 1px solid rgba(196, 196, 196, 1);
+  background: rgb(255, 255, 255);
 	height: 150px;
 `;
 
 const Front = styled(Side)`
+  position: relative;
   transform: translateZ(75px);
 `;
 
 const Back = styled(Side)`
+  // border: 1px solid rgba(196, 196, 196, 1);
+  background: #f0f0f0;
   transform: rotateX(-90deg) translateZ(-75px);
 `;
 
 const BackContent = styled.div`
   padding-top: 70px;
+  font-weight: 700;
 `;
 
 class Cube extends React.Component {
@@ -47,9 +51,7 @@ class Cube extends React.Component {
     return (
       <Container className={className}>
         <Front>
-          <BackContent>
-            Front
-          </BackContent>
+          <ColorPane colors={cell.colors} />
         </Front>
         <Back>
           <BackContent>
