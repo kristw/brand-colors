@@ -1,5 +1,5 @@
 export default {
   INIT: 'INIT',
-  BUILD_STATE: 'BUILD_STATE',
+  BUILD_BOARD: 'BUILD_BOARD',
   FLIP: 'FLIP',
 };

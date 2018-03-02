@@ -6,10 +6,12 @@ import styled from 'styled-components';
 const propTypes = {
   className: PropTypes.string,
   cells: PropTypes.array,
+  onCellClick: PropTypes.func,
 };
 const defaultProps = {
   className: '',
   cells: [],
+  onCellClick() {},
 };
 
 const Container = styled.div`
@@ -23,7 +25,7 @@ const Row = styled.div`
 
 class Grid extends React.Component {
   render() {
-    const { className, cells } = this.props;
+    const { className, cells, onCellClick } = this.props;
     const dim = Math.ceil(Math.sqrt(cells.length));
     const rows = [];
     const len = cells.length;
@@ -34,10 +36,13 @@ class Grid extends React.Component {
 
     return (
       <Container className={className}>
-        {rows.map(r => (
+        {rows.map((r, i) => (
           <Row>
-            {r.map(cell => (
-              <Cube cell={cell} />
+            {r.map((cell, j) => (
+              <Cube
+                cell={cell}
+                onClick={e => onCellClick(i * dim + j)}
+              />
             ))}
           </Row>
         ))}

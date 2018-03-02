@@ -4,18 +4,21 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   const {
-    field,
+    cells,
   } = state;
 
   return {
-    field
+    cells,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onSearch: () => {
-      // dispatch(Actions.buildReport());
+    onInit() {
+      dispatch(Actions.buildBoard());
+    },
+    onCellClick(index) {
+      dispatch(Actions.flip(index));
     },
   };
 }

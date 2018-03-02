@@ -15,8 +15,9 @@ class ColorPane extends React.Component {
     const partSize = Math.round(100 / colors.length);
     return (
       <svg className={className} width="100%" height="100%">
-        {colors.map(c => (
+        {colors.map((c, i) => (
           <rect
+            x={`${i * partSize}%`}
             width={`${partSize}%`}
             height="100%"
             fill={c}

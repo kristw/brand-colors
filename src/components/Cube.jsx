@@ -5,9 +5,12 @@ import styled from 'styled-components';
 
 const propTypes = {
   className: PropTypes.string,
+  cell: PropTypes.object.isRequired,
+  onClick: PropTypes.func,
 };
 const defaultProps = {
   className: '',
+  onClick() {},
 };
 
 const Wrap = styled.div`
@@ -23,15 +26,13 @@ const Container = styled.div`
 	text-align: center;
 	transition: transform .5s; /* Animate the transform properties */
   transform-style: preserve-3d; /* <-NB */
-  // transform: rotateY(-10deg);
 
-  &:hover {
+  &:hover, &.open {
     transform: rotateX(85deg); /* Text bleed at 90º */
   }
 `;
 
 const Side = styled.div`
-  // border: 5px solid #000;
   background: rgb(255, 255, 255);
 	height: 100%;
 `;
@@ -53,16 +54,16 @@ const BackContent = styled.div`
 
 class Cube extends React.Component {
   render() {
-    const { className, cell } = this.props;
+    const { className, cell, onClick } = this.props;
     return (
-      <Wrap className={className}>
-        <Container>
+      <Wrap className={className} onClick={e => { onClick(e); }}>
+        <Container className={cell.open ? 'open' : ''}>
           <Front>
-            <ColorPane colors={cell.colors} />
+            <ColorPane colors={cell.brand.colors} />
           </Front>
           <Down>
             <BackContent>
-              {cell.name}
+              {cell.brand.name}
             </BackContent>
           </Down>
         </Container>

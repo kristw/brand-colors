@@ -70,5 +70,120 @@
       "#09091a"
     ],
     "logo": "test.png"
+  },
+  {
+    "name": "Stripe",
+    "link": "https://stripe.com",
+    "colors": [
+      "#00afe1"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Yahoo",
+    "link": "https://yahoo.com",
+    "colors": [
+      "#410093"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Twitch",
+    "link": "https://twitch.com",
+    "colors": [
+      "#6441a5"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Amazon",
+    "link": "https://amazon.com",
+    "colors": [
+      "#ff9900",
+      "#146eb4"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Dropbox",
+    "link": "https://dropbox.com",
+    "colors": [
+      "#007ee5"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "eBay",
+    "link": "https://ebay.com",
+    "colors": [
+      "#e53238",
+      "#0064d2",
+      "#f5af02",
+      "#86b817"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Google",
+    "link": "https://google.com",
+    "colors": [
+      "#4285f4",
+      "#34a853",
+      "#fbbc05",
+      "#ea4335"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Slack",
+    "link": "https://slack.com",
+    "colors": [
+      "#6ecadc",
+      "#e9a820",
+      "#e01563",
+      "#3eb991"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Evernote",
+    "link": "https://evernote.com",
+    "colors": [
+      "#2dbe60"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "LinkedIn",
+    "link": "https://linkedin.com",
+    "colors": [
+      "#0077b5"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Houzz",
+    "link": "https://houzz.com",
+    "colors": [
+      "#7ac142"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Pinterest",
+    "link": "https://pinterest.com",
+    "colors": [
+      "#bd081c"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Flickr",
+    "link": "https://flickr.com",
+    "colors": [
+      "#0063dc",
+      "#ff0084"
+    ],
+    "logo": "test.png"
   }
 ]
