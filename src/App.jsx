@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 
 import Grid from './components/Grid';
 import PropTypes from 'prop-types';
+import correctIcon from './images/correct.png';
+import styled from 'styled-components';
+import wrongIcon from './images/wrong.png';
 
 const propTypes = {
   className: PropTypes.string,
@@ -20,9 +23,30 @@ const defaultProps = {
   onCellClick() { },
 };
 
+const Button = styled.button`
+  margin-top: 30px;
+  font-size: 28px;
+  padding: 4px 15px 5px 15px;
+  font-weight: 700;
+  border: 3px solid #222;
+  background: rgba(0,0,0,0);
+`;
+
 class App extends Component {
   componentDidMount() {
     this.props.onInit();
+  }
+
+  renderNext() {
+    const { seen, hasNextPage, onNextPage } = this.props;
+    if (hasNextPage && seen > 0 && seen % 9 === 0) {
+      return (
+        <Button onClick={() => { onNextPage(); }}>
+          Next
+        </Button>
+      )
+    }
+    return null;
   }
 
   render() {
@@ -33,6 +57,12 @@ class App extends Component {
           <div className="left">
             <h1>Guess companies <br /> from the colors</h1>
             <h2>{score} / {seen}</h2>
+            Click on each box to see the answer.
+            <p>
+              Click <img src={correctIcon} height="12" alt="" /> if your guess is correct.<br />
+              Otherwise, click <img src={wrongIcon} height="12" alt="" />.
+            </p>
+            {this.renderNext()}
           </div>
           <div className="right">
             <Grid
@@ -52,3 +82,4 @@ class App extends Component {
 }
 
 export default App;
+

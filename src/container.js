@@ -7,12 +7,15 @@ function mapStateToProps(state) {
     cells,
     seen,
     score,
+    brands,
+    index
   } = state;
 
   return {
     cells,
     seen,
     score,
+    hasNextPage: index < brands.length
   };
 }
 
@@ -26,6 +29,9 @@ function mapDispatchToProps(dispatch) {
     },
     onCellScore(index, score) {
       dispatch(Actions.score({ index, score }));
+    },
+    onNextPage() {
+      dispatch(Actions.buildBoard());
     }
   };
 }
