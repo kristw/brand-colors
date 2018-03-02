@@ -3,7 +3,7 @@ import brandsData from './data/brands.json';
 import { shuffle } from 'lodash/fp';
 
 const brands = shuffle(brandsData);
-const PAGE_SIZE = 9;
+export const PAGE_SIZE = 9;
 
 const reducer = (state = {
   seen: 0,

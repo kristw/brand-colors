@@ -99,11 +99,17 @@ class Cube extends React.Component {
       );
     } else if (score === 1) {
       return (
-        <ScoreLine>Correct!</ScoreLine>
+        <ScoreLine>
+          <img src={correctIcon} height="10" alt="" />
+          &nbsp;Correct!
+        </ScoreLine>
       );
     }
     return (
-      <ScoreLine>Wrong.</ScoreLine>
+      <ScoreLine>
+        <img src={wrongIcon} height="10" alt="" />
+        &nbsp;Wrong.
+      </ScoreLine>
     );
   }
 
