@@ -3,8 +3,34 @@
   padding: 30px;
 }
 
-a {
-  text-decoration: none;
+.frame {
+  display: inline-block;
+  width: 1000px;
+  height: 530px;
+  position: relative;
+}
+
+.left {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 400px;
+  height: 30px;
+  color: #ccc;
+}
+
+.right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 400px;
 }
 
 h1 {
@@ -13,9 +39,4 @@ h1 {
   padding-top: 20px;
   font-size: 40px;
   font-weight: normal;
-}
-
-.footer {
-  color: #ccc;
-  margin-top: 60px;
 }

@@ -23,7 +23,7 @@ const Container = styled.div`
 const Row = styled.div`
   vertical-align: top;
   height: 150px;
-  margin: 20px 0;
+  margin: 25px 0;
 `;
 
 class Grid extends React.Component {

@@ -14,7 +14,11 @@ body {
 
 #root {
   width: 100%;
-  height: 100%;
+  height: 630px;
   overflow: auto;
   background-color: rgba(240, 239, 239, 0.8);
+}
+
+a {
+  text-decoration: none;
 }

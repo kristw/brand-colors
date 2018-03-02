@@ -21,7 +21,7 @@ const Wrap = styled.div`
 	display: inline-block;
   vertical-align: top;
   perspective: 1500px;
-  margin: 10px;
+  margin: 0 13px 25px 13px;
 `;
 
 const Container = styled.div`
