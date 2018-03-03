@@ -38,7 +38,7 @@ class Timer extends React.Component {
     const { className } = this.props;
     return (
       <div className={className}>
-        Time: {(this.state.now / 1000).toFixed(1)} s
+        Time: {(this.state.now / 1000).toFixed(1)}s
       </div>
     );
   }

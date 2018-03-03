@@ -21,7 +21,6 @@
   position: absolute;
   bottom: 0;
   width: 400px;
-  height: 30px;
   color: #ccc;
 }
 
@@ -39,4 +38,24 @@ h1 {
   padding-top: 20px;
   font-size: 40px;
   font-weight: normal;
+}
+
+.activity-chart {
+  margin-bottom: 30px;
+}
+
+.activity-chart circle {
+  fill: transparent;
+  stroke: #222;
+  stroke-width: 2px;
+}
+
+.activity-chart text {
+  font-family: Rubik;
+}
+
+.activity-chart path,
+.activity-chart line {
+  stroke: #999;
+  stroke-width: 1px;
 }

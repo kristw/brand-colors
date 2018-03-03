@@ -28,15 +28,13 @@ const reducer = (state = {
     case Types.FLIP:
       {
         const index = payload;
-        if (!state.cells[index].open) {
-          const newCells = state.cells.concat();
-          newCells[index] = state.cells[index].setOpen(true);
-          nextState = {
-            ...state,
-            flipped: state.flipped + 1,
-            cells: newCells
-          };
-        }
+        const newCells = state.cells.concat();
+        newCells[index] = state.cells[index].setOpen(true);
+        nextState = {
+          ...state,
+          flipped: state.flipped + 1,
+          cells: newCells
+        };
       }
       break;
     case Types.SCORE:

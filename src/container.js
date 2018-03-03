@@ -9,10 +9,12 @@ function mapStateToProps(state) {
     flipped,
     seen,
     score,
-    page
+    page,
+    actions,
   } = state;
 
   return {
+    actions: actions.slice(1),
     catalog,
     cells,
     flipped,
@@ -28,8 +30,10 @@ function mapDispatchToProps(dispatch) {
     onInit() {
       dispatch(Actions.buildBoard());
     },
-    onCellClick(index) {
-      dispatch(Actions.flip(index));
+    onCellClick(index, cell) {
+      if (!cell.open) {
+        dispatch(Actions.flip(index));
+      }
     },
     onCellScore(index, score) {
       dispatch(Actions.score({ index, score }));

@@ -45,8 +45,8 @@ class Grid extends React.Component {
               <Cube
                 key={cell.brand.name}
                 cell={cell}
-                onClick={e => { onCellClick(i * dim + j) }}
-                onScore={score => { onCellScore(i * dim + j, score); }}
+                onClick={e => { onCellClick(i * dim + j, cell) }}
+                onScore={score => { onCellScore(i * dim + j, score, cell); }}
               />
             ))}
           </Row>
