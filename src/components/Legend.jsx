@@ -62,6 +62,17 @@ class Legend extends React.Component {
           />
         </Svg>
         Wrong
+        &nbsp;
+        <Svg>
+          <rect
+            x="5"
+            y="0"
+            width="1"
+            height="12"
+            fill="#222"
+          />
+        </Svg>
+        Next Page
       </Container>
     );
   }

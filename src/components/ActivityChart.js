@@ -25,7 +25,7 @@ class AcivityChart extends SvgChart {
 
     this.container.classed('activity-chart', true);
 
-    this.layers.create(['x-axis', 'y-axis', 'points', 'line', 'title']);
+    this.layers.create(['x-axis', 'y-axis', 'points', 'next', 'title']);
     this.xScale = scaleLinear();
     this.yScale = scaleLinear()
       .domain([0, 36])
@@ -78,6 +78,37 @@ class AcivityChart extends SvgChart {
     this.layers.get('y-axis').transition()
       .call(this.yAxis);
 
+    this.renderPoints(data.filter(d =>
+      d.action.type !== actionTypes.BUILD_BOARD
+    ), start);
+    this.renderNext(data.filter(d =>
+      d.action.type === actionTypes.BUILD_BOARD
+    ), start);
+  }
+
+  renderNext(data, start){
+    const s = this.layers.get('points').selectAll('rect')
+      .data(data);
+
+    const BAR_HEIGHT = 12;
+    const HALF_BAR_HEIGHT = BAR_HEIGHT / 2;
+
+    s.enter().append('rect')
+      .attr('x', d => this.xScale(d.time - start))
+      .attr('y', d => this.yScale(d.score) - HALF_BAR_HEIGHT)
+      .attr('width', 1)
+      .attr('height', BAR_HEIGHT)
+      .attr('fill', '#222')
+      .style('opacity', 0)
+      .transition()
+      .style('opacity', 1)
+
+    s.transition()
+      .attr('x', d => this.xScale(d.time - start))
+      .attr('y', d => this.yScale(d.score) - HALF_BAR_HEIGHT);
+  }
+
+  renderPoints(data, start) {
     const s = this.layers.get('points').selectAll('circle')
       .data(data);
 
@@ -85,8 +116,8 @@ class AcivityChart extends SvgChart {
       .attr('cx', d => this.xScale(d.time - start))
       .attr('cy', d => this.yScale(d.score))
       .style('stroke', d => {
-        if(d.action.type === actionTypes.SCORE) {
-          if(d.action.payload.score > 0) {
+        if (d.action.type === actionTypes.SCORE) {
+          if (d.action.payload.score > 0) {
             return '#2E9E49';
           } else {
             return '#E73A2F';
@@ -95,6 +126,9 @@ class AcivityChart extends SvgChart {
         return '#222';
       })
       .attr('r', d => d.action.type === actionTypes.SCORE ? 3 : 1)
+      .style('opacity', 0)
+      .transition()
+      .style('opacity', 1)
 
     s.transition()
       .attr('cx', d => this.xScale(d.time - start))
