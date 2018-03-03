@@ -7,15 +7,15 @@ function mapStateToProps(state) {
     cells,
     seen,
     score,
-    brands,
-    index
+    catalog,
+    page
   } = state;
 
   return {
     cells,
     seen,
     score,
-    hasNextPage: index < brands.length
+    hasNextPage: catalog.hasNextPage(page)
   };
 }
 
