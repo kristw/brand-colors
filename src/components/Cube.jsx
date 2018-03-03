@@ -72,8 +72,7 @@ const ScoreLine = styled.div`
 
 const Button = styled.button`
   background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 2px solid #ccc;
   font-size: 14px;
   font-weight: 700;
   width: 120px;
@@ -83,7 +82,7 @@ const Button = styled.button`
   transition: all .3s;
 
   &:hover {
-    background-color: #FAFFF9;
+    border-color: #333;
   }
 `;
 
