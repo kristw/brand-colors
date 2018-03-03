@@ -80,6 +80,11 @@ const Button = styled.button`
   padding: 6px;
   margin: 5px 2px 0 2px;
   text-align: center;
+  transition: all .3s;
+
+  &:hover {
+    background-color: #FAFFF9;
+  }
 `;
 
 class Cube extends React.Component {
