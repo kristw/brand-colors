@@ -1,5 +1,3 @@
-import './App.css';
-
 import React, { Component } from 'react';
 
 import Grid from './components/Grid';
@@ -26,6 +24,11 @@ const defaultProps = {
   onCellClick() { },
 };
 
+const Container = styled.div`
+  text-align: center;
+  padding: 30px;
+`;
+
 const Button = styled.button`
   margin-top: 30px;
   font-size: 28px;
@@ -33,6 +36,35 @@ const Button = styled.button`
   font-weight: 700;
   border: 3px solid #222;
   background: rgba(0,0,0,0);
+`;
+
+const Frame = styled.div`
+  display: inline-block;
+  width: 1000px;
+  height: 530px;
+  position: relative;
+`;
+
+const Left = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+`;
+
+const Right = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 400px;
+`;
+
+const Footer = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 400px;
+  color: #ccc;
 `;
 
 const Subtitle = styled.div`
@@ -80,9 +112,9 @@ class App extends Component {
   render() {
     const { actions, catalog, cells, onCellClick, onCellScore, flipped, seen, score } = this.props;
     return (
-      <div className="App">
-        <div className="frame">
-          <div className="left">
+      <Container className="App">
+        <Frame>
+          <Left>
             <h1>Guess companies <br /> from the colors</h1>
             <Subtitle>
               <TimerBox>
@@ -100,9 +132,8 @@ class App extends Component {
               </p>
               : null}
             {this.renderNext()}
-
-          </div>
-          <div className="right">
+          </Left>
+          <Right>
             <Grid
               cells={cells}
               onCellClick={(index, cell) => {
@@ -118,19 +149,16 @@ class App extends Component {
                 onCellScore(...args);
               }}
             />
-          </div>
-          <div className="footer">
+          </Right>
+          <Footer>
             {actions.length > 0
-              ? <ActivityChart
-                  className="activity-chart"
-                  data={actions}
-                />
+              ? <ActivityChart data={actions} />
               : null}
             &copy; 2018 &mdash; Krist Wongsuphasawat /
             <a href="https://twitter.com/kristw">@kristw</a>
-          </div>
-        </div>
-      </div>
+          </Footer>
+        </Frame>
+      </Container>
     );
   }
 }

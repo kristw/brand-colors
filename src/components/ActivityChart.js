@@ -1,4 +1,5 @@
 import 'd3-transition';
+import './ActivityChart.css';
 
 import { SvgChart, helper } from 'd3kit';
 import { axisLeft, axisTop } from 'd3-axis';
@@ -21,6 +22,8 @@ class AcivityChart extends SvgChart {
 
   constructor(element, options) {
     super(element, options);
+
+    this.container.classed('activity-chart', true);
 
     this.layers.create(['x-axis', 'y-axis', 'points', 'line', 'title']);
     this.xScale = scaleLinear();
@@ -70,7 +73,6 @@ class AcivityChart extends SvgChart {
       .tickFormat(d => (d / 1000).toFixed(1) + 's');
 
     this.layers.get('x-axis').transition()
-      // .attr('transform', `translate(0,${this.getInnerHeight()})`)
       .call(this.xAxis);
 
     this.layers.get('y-axis').transition()

@@ -1,0 +1,25 @@
+.activity-chart {
+  margin-bottom: 30px;
+}
+
+.activity-chart circle {
+  fill: transparent;
+  stroke: #222;
+  stroke-width: 2px;
+}
+
+.activity-chart text {
+  font-family: Rubik;
+}
+
+.activity-chart path,
+.activity-chart line {
+  stroke: #999;
+  stroke-width: 1px;
+}
+
+.activity-chart .title-layer text {
+  text-anchor: middle;
+  font-weight: 700;
+  font-size: 12px;
+}
