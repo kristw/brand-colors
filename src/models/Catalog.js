@@ -7,16 +7,18 @@ class Catalog {
 
     const len = this.brands.length;
     this.brands.forEach((b, i) => {
-      let index = random(len);
+      let index = random(0, len - 1);
       while (index === i) {
-        index = random(len);
+        index = random(0, len - 1);
       }
       b.distraction = this.brands[index];
     })
   }
 
   getPage(page) {
-    return this.brands.slice(page * this.pageSize, this.pageSize);
+    const start = page * this.pageSize;
+    const end = start + this.pageSize;
+    return this.brands.slice(start, end);
   }
 
   hasNextPage(page) {

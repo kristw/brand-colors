@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 
 function mapStateToProps(state) {
   const {
+    catalog,
     cells,
     seen,
     score,
-    catalog,
     page
   } = state;
 
   return {
+    catalog,
     cells,
     seen,
     score,

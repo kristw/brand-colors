@@ -38,8 +38,8 @@ class App extends Component {
   }
 
   renderNext() {
-    const { seen, hasNextPage, onNextPage } = this.props;
-    if (hasNextPage && seen > 0 && seen % 9 === 0) {
+    const { catalog, seen, hasNextPage, onNextPage } = this.props;
+    if (hasNextPage && seen > 0 && seen % catalog.pageSize === 0) {
       return (
         <Button onClick={() => { onNextPage(); }}>
           Next
@@ -57,10 +57,8 @@ class App extends Component {
           <div className="left">
             <h1>Guess companies <br /> from the colors</h1>
             <h2>{score} / {seen}</h2>
-            Click on each box to see the answer.
             <p>
-              Click <img src={correctIcon} height="12" alt="" /> if your guess is correct.<br />
-              Otherwise, click <img src={wrongIcon} height="12" alt="" />.
+              Click on each box to see the choices.
             </p>
             {this.renderNext()}
           </div>

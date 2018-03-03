@@ -56,12 +56,16 @@ const Down = styled(Side)`
 `;
 
 const BackContent = styled.div`
-  padding-top: 60px;
+  padding-top: 40px;
   font-weight: 700;
 `;
 
+const Answer = styled.div`
+`;
+
 const ScoreLine = styled.div`
-  margin-top: 0.1em;
+  margin-top: 20px;
+  margin-bottom: 0.1em;
   font-size: 0.9em;
   font-weight: normal;
 `;
@@ -70,8 +74,10 @@ const Button = styled.button`
   background-color: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 40px;
-  padding-top: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  width: 120px;
+  padding: 6px;
   margin: 5px 2px 0 2px;
   text-align: center;
 `;
@@ -81,35 +87,49 @@ class Cube extends React.Component {
     const { cell, onScore } = this.props;
     const score = cell.score;
     if (score === null) {
+      const buttons = [
+        <Button onClick={e => {
+          onScore(1);
+          e.stopPropagation();
+        }}>
+          {cell.brand.name}
+        </Button>,
+        <Button onClick={e => {
+          onScore(0);
+          e.stopPropagation();
+        }}>
+          {cell.brand.distraction.name}
+        </Button>
+      ];
+
       return (
         <div>
-          <Button onClick={e => {
-            onScore(1);
-            e.stopPropagation();
-          }}>
-            <img src={correctIcon} alt=""/>
-          </Button>
-          <Button onClick={e => {
-            onScore(0);
-            e.stopPropagation();
-          }}>
-            <img src={wrongIcon} alt=""/>
-          </Button>
+          {cell.answerIndex === 0 ? buttons : buttons.reverse()}
         </div>
       );
     } else if (score === 1) {
       return (
-        <ScoreLine>
-          <img src={correctIcon} height="10" alt="" />
-          &nbsp;Correct!
-        </ScoreLine>
+        <div>
+          <ScoreLine>
+            <img src={correctIcon} height="10" alt="" />
+            &nbsp;Correct!
+          </ScoreLine>
+          <Answer>
+            {cell.brand.name}
+          </Answer>
+        </div>
       );
     }
     return (
-      <ScoreLine>
-        <img src={wrongIcon} height="10" alt="" />
-        &nbsp;Wrong.
-      </ScoreLine>
+      <div>
+        <ScoreLine>
+          <img src={wrongIcon} height="10" alt="" />
+          &nbsp;Wrong.
+        </ScoreLine>
+        <Answer>
+          {cell.brand.name}
+        </Answer>
+      </div>
     );
   }
 
@@ -123,7 +143,6 @@ class Cube extends React.Component {
           </Front>
           <Down>
             <BackContent>
-              {cell.brand.name}
               {this.renderScore()}
             </BackContent>
           </Down>

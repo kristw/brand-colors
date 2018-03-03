@@ -1,3 +1,4 @@
+import { random } from 'lodash/fp';
 // Immutable
 
 class Cell {
@@ -5,12 +6,14 @@ class Cell {
     this.brand = brand;
     this.open = false;
     this.score = null;
+    this.answerIndex = random(0, 1);
   }
 
   clone() {
     const clone = new Cell(this.brand);
     clone.open = this.open;
     clone.score = this.score;
+    clone.answerIndex = this.answerIndex;
     return clone;
   }
 
