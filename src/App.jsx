@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Grid from './components/Grid';
+import Legend from './components/Legend';
 import PropTypes from 'prop-types';
 import Timer from './components/Timer';
 import _ActivityChart from './components/ActivityChart';
@@ -131,7 +132,9 @@ class App extends Component {
             </Subtitle>
             {flipped === 0
               ? <p>
-                Click on each box to see the choices.
+                Click on each box to see the choices.<br/>
+                There are {catalog.brands.length} companies.<br/>
+                Answer as fast as you can!
               </p>
               : null}
             {this.renderNext()}
@@ -155,7 +158,10 @@ class App extends Component {
           </Right>
           <Footer>
             {actions.length > 0
-              ? <ActivityChart data={actions} />
+              ? (<div>
+                <Legend />
+                <ActivityChart data={actions} />
+              </div>)
               : null}
             &copy; 2018 &mdash;&nbsp;
             <a href="http://kristw.yellowpigz.com">Krist Wongsuphasawat</a>

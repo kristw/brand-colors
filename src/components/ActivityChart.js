@@ -12,7 +12,7 @@ class AcivityChart extends SvgChart {
     return helper.deepExtend(super.getDefaultOptions(), {
       margin: { top: 40, left: 40, right: 40, bottom: 10 },
       initialWidth: 400,
-      initialHeight: 150
+      initialHeight: 130
     });
   }
 
