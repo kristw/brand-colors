@@ -131,11 +131,15 @@ class App extends Component {
               </ScoreBox>
             </Subtitle>
             {flipped === 0
-              ? <p>
-                Click on each box to see the choices.<br/>
-                There are {catalog.brands.length} companies.<br/>
-                Answer as fast as you can!
-              </p>
+              ? <div>
+                <p>
+                  Click on each box to see the choices.
+                </p>
+                <p>
+                  There are {catalog.brands.length} companies.<br/>
+                  Answer as fast as you can!
+                </p>
+              </div>
               : null}
             {this.renderNext()}
           </Left>
