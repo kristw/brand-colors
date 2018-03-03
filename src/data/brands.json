@@ -124,6 +124,17 @@
     "logo": "test.png"
   },
   {
+    "name": "Microsoft",
+    "link": "https://microsoft.com",
+    "colors": [
+      "#f65314",
+      "#7cbb00",
+      "#00a1f1",
+      "#ffbb00"
+    ],
+    "logo": "test.png"
+  },
+  {
     "name": "Google",
     "link": "https://google.com",
     "colors": [
@@ -183,6 +194,110 @@
     "colors": [
       "#0063dc",
       "#ff0084"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Etsy",
+    "link": "https://etsy.com",
+    "colors": [
+      "#d5641c"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Groupon",
+    "link": "https://groupon.com",
+    "colors": [
+      "#82b548"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Heroku",
+    "link": "https://heroku.com",
+    "colors": [
+      "#6762a6"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Intuit",
+    "link": "https://intuit.com",
+    "colors": [
+      "#365ebf"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "MailChimp",
+    "link": "https://mailchimp.com",
+    "colors": [
+      "#239ab9"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Mixpanel",
+    "link": "https://mixpanel.com",
+    "colors": [
+      "#a086d3"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Nvidia",
+    "link": "https://nvidia.com",
+    "colors": [
+      "#76b900"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Oracle",
+    "link": "https://oracle.com",
+    "colors": [
+      "#ff0000"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Quora",
+    "link": "https://quora.com",
+    "colors": [
+      "#a82400"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Reddit",
+    "link": "https://reddit.com",
+    "colors": [
+      "#ff4500"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Salesforce",
+    "link": "https://salesforce.com",
+    "colors": [
+      "#1798c1"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Skype",
+    "link": "https://skype.com",
+    "colors": [
+      "#00aff0"
+    ],
+    "logo": "test.png"
+  },
+  {
+    "name": "Spotify",
+    "link": "https://spotify.com",
+    "colors": [
+      "#1db954"
     ],
     "logo": "test.png"
   }

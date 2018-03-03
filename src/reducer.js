@@ -9,6 +9,7 @@ const reducer = (state = {
   catalog: new Catalog(brandsData),
   page: 0,
   cells: [],
+  actions: [],
 }, action) => {
   const { payload } = action;
 
