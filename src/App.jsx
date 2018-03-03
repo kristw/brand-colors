@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 
 import Grid from './components/Grid';
 import PropTypes from 'prop-types';
+import Timer from './components/Timer';
 import styled from 'styled-components';
 
 const propTypes = {
@@ -48,23 +49,38 @@ class App extends Component {
   }
 
   render() {
-    const { cells, onCellClick, onCellScore, seen, score } = this.props;
+    const { catalog, cells, onCellClick, onCellScore, flipped, seen, score } = this.props;
     return (
       <div className="App">
         <div className="frame">
           <div className="left">
             <h1>Guess companies <br /> from the colors</h1>
             <h2>{score} / {seen}</h2>
-            <p>
-              Click on each box to see the choices.
-            </p>
+            <h2>
+              <Timer ref={c => { this.timer = c; }} />
+            </h2>
+            {flipped === 0
+              ? <p>
+                Click on each box to see the choices.
+              </p>
+              : null}
             {this.renderNext()}
           </div>
           <div className="right">
             <Grid
               cells={cells}
-              onCellClick={onCellClick}
-              onCellScore={onCellScore}
+              onCellClick={index => {
+                if (flipped === 0) {
+                  this.timer.start();
+                }
+                onCellClick(index);
+              }}
+              onCellScore={(...args) => {
+                if (seen === catalog.brands.length - 1) {
+                  this.timer.stop();
+                }
+                onCellScore(...args);
+              }}
             />
           </div>
           <div className="footer">

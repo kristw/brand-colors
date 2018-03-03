@@ -6,6 +6,7 @@ function mapStateToProps(state) {
   const {
     catalog,
     cells,
+    flipped,
     seen,
     score,
     page
@@ -14,6 +15,7 @@ function mapStateToProps(state) {
   return {
     catalog,
     cells,
+    flipped,
     seen,
     score,
     hasNextPage: catalog.hasNextPage(page)

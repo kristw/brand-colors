@@ -4,6 +4,7 @@ import Types from './actionTypes';
 import brandsData from './data/brands.json';
 
 const reducer = (state = {
+  flipped: 0,
   seen: 0,
   score: 0,
   catalog: new Catalog(brandsData),
@@ -31,6 +32,7 @@ const reducer = (state = {
         newCells[index] = state.cells[index].setOpen(true);
         nextState = {
           ...state,
+          flipped: state.flipped + 1,
           cells: newCells
         };
       }
