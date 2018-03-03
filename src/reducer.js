@@ -25,7 +25,7 @@ const reducer = (state = {
       break;
     case Types.FLIP:
       {
-        const index = action.payload;
+        const index = payload;
         const newCells = state.cells.concat();
         newCells[index] = state.cells[index].setOpen(true);
         nextState = {
@@ -36,7 +36,7 @@ const reducer = (state = {
       break;
     case Types.SCORE:
       {
-        const { index, score } = action.payload;
+        const { index, score } = payload;
         const newCells = state.cells.concat();
         newCells[index] = state.cells[index].setScore(score);
         nextState = {

@@ -4,9 +4,7 @@ import React, { Component } from 'react';
 
 import Grid from './components/Grid';
 import PropTypes from 'prop-types';
-import correctIcon from './images/correct.png';
 import styled from 'styled-components';
-import wrongIcon from './images/wrong.png';
 
 const propTypes = {
   className: PropTypes.string,
@@ -78,6 +76,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = propTypes;
+App.defaultProps = defaultProps;
 
 export default App;
 

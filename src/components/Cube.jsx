@@ -88,13 +88,13 @@ class Cube extends React.Component {
     const score = cell.score;
     if (score === null) {
       const buttons = [
-        <Button onClick={e => {
+        <Button key="y" onClick={e => {
           onScore(1);
           e.stopPropagation();
         }}>
           {cell.brand.name}
         </Button>,
-        <Button onClick={e => {
+        <Button key="n" onClick={e => {
           onScore(0);
           e.stopPropagation();
         }}>

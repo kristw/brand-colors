@@ -40,9 +40,10 @@ class Grid extends React.Component {
     return (
       <Container className={className}>
         {rows.map((r, i) => (
-          <Row>
+          <Row key={i}>
             {r.map((cell, j) => (
               <Cube
+                key={cell.brand.name}
                 cell={cell}
                 onClick={e => { onCellClick(i * dim + j) }}
                 onScore={score => { onCellScore(i * dim + j, score); }}
