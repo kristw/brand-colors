@@ -18,6 +18,7 @@ function mapStateToProps(state) {
     flipped,
     seen,
     score,
+    hasUnopened: seen < page * catalog.pageSize,
     hasNextPage: catalog.hasNextPage(page)
   };
 }

@@ -28,13 +28,15 @@ const reducer = (state = {
     case Types.FLIP:
       {
         const index = payload;
-        const newCells = state.cells.concat();
-        newCells[index] = state.cells[index].setOpen(true);
-        nextState = {
-          ...state,
-          flipped: state.flipped + 1,
-          cells: newCells
-        };
+        if (!state.cells[index].open) {
+          const newCells = state.cells.concat();
+          newCells[index] = state.cells[index].setOpen(true);
+          nextState = {
+            ...state,
+            flipped: state.flipped + 1,
+            cells: newCells
+          };
+        }
       }
       break;
     case Types.SCORE:
@@ -51,6 +53,21 @@ const reducer = (state = {
       }
       break;
   }
+
+  // Add logging
+  if (action.type === Types.BUILD_BOARD
+    || action.type === Types.FLIP
+    || action.type === Types.SCORE) {
+    const newActions = state.actions.concat();
+    newActions.push({
+      time: new Date(),
+      score: state.score,
+      seen: state.seen,
+      action,
+    });
+    return { ...nextState, actions: newActions };
+  }
+
   return nextState;
 };
 

@@ -37,8 +37,11 @@ class App extends Component {
   }
 
   renderNext() {
-    const { catalog, seen, hasNextPage, onNextPage } = this.props;
-    if (hasNextPage && seen > 0 && seen % catalog.pageSize === 0) {
+    const { catalog, seen, hasUnopened, hasNextPage, onNextPage } = this.props;
+    if (hasNextPage
+      && seen > 0
+      && seen % catalog.pageSize === 0
+      && !hasUnopened) {
       return (
         <Button onClick={() => { onNextPage(); }}>
           Next
