@@ -11,8 +11,8 @@ const defaultProps = {
 
 const Container = styled.div`
   font-size: 11px;
-  text-align:right;
-  margin-right: 40px;
+  text-align: center;
+  margin: 0 40px 5px 40px;
 `;
 
 const Svg = styled.svg`
