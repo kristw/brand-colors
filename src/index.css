@@ -22,6 +22,9 @@ body {
 a {
   text-decoration: none;
 }
+a:hover {
+  text-decoration: underline;
+}
 
 h1 {
   font-family: 'Alfa Slab One', 'Helvetica Neue', Helvetica, Arial, sans-serif;

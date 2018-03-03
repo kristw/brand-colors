@@ -64,7 +64,10 @@ const Footer = styled.div`
   position: absolute;
   bottom: 0;
   width: 400px;
-  color: #ccc;
+  color: #bbb;
+  a {
+    color: #555;
+  }
 `;
 
 const Subtitle = styled.div`
@@ -154,8 +157,17 @@ class App extends Component {
             {actions.length > 0
               ? <ActivityChart data={actions} />
               : null}
-            &copy; 2018 &mdash; Krist Wongsuphasawat /
-            <a href="https://twitter.com/kristw">@kristw</a>
+            &copy; 2018 &mdash;&nbsp;
+            <a href="http://kristw.yellowpigz.com">Krist Wongsuphasawat</a>
+            &nbsp;
+            (<a href="https://twitter.com/kristw">@kristw</a>)
+            <div>
+              <small>
+                <a href="https://github.com/kristw/brand-colors">Source</a> on github
+                &nbsp;/&nbsp;
+                Colors from <a href="https://brandcolors.net/">Brand Colors</a>
+              </small>
+            </div>
           </Footer>
         </Frame>
       </Container>
@@ -167,4 +179,3 @@ App.propTypes = propTypes;
 App.defaultProps = defaultProps;
 
 export default App;
-
