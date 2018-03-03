@@ -22,7 +22,7 @@ class AcivityChart extends SvgChart {
   constructor(element, options) {
     super(element, options);
 
-    this.layers.create(['x-axis', 'y-axis', 'points', 'line']);
+    this.layers.create(['x-axis', 'y-axis', 'points', 'line', 'title']);
     this.xScale = scaleLinear();
     this.yScale = scaleLinear()
       .domain([0, 36])
@@ -34,6 +34,15 @@ class AcivityChart extends SvgChart {
       .tickSizeOuter(0)
       .scale(this.yScale)
       .ticks(4);
+
+    this.layers.get('title').append('text')
+      .text('Time')
+      .attr('x', this.getInnerWidth() / 2)
+      .attr('y', -25);
+
+    this.layers.get('title').append('text')
+      .text('Score')
+      .attr('transform', `translate(-30, ${this.getInnerHeight() / 2})rotate(-90)`)
 
     this.visualize = this.visualize.bind(this);
     this.on('data', this.visualize);

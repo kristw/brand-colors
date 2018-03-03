@@ -59,3 +59,9 @@ h1 {
   stroke: #999;
   stroke-width: 1px;
 }
+
+.activity-chart .title-layer text {
+  text-anchor: middle;
+  font-weight: 700;
+  font-size: 12px;
+}

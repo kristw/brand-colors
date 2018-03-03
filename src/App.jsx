@@ -91,7 +91,7 @@ class App extends Component {
                 </H2>
               </TimerBox>
               <ScoreBox>
-                <H2>Score: {score} / {seen}</H2>
+                <H2>Score: {score}/{seen}</H2>
               </ScoreBox>
             </Subtitle>
             {flipped === 0
@@ -120,10 +120,12 @@ class App extends Component {
             />
           </div>
           <div className="footer">
-            <ActivityChart
-              className="activity-chart"
-              data={actions}
-            />
+            {actions.length > 0
+              ? <ActivityChart
+                  className="activity-chart"
+                  data={actions}
+                />
+              : null}
             &copy; 2018 &mdash; Krist Wongsuphasawat /
             <a href="https://twitter.com/kristw">@kristw</a>
           </div>
