@@ -141,6 +141,9 @@ class App extends Component {
                 </p>
               </div>
               : null}
+            {seen === catalog.brands.length
+              ? <p>You made it to the end. Great job!</p>
+              : null}
             {this.renderNext()}
           </Left>
           <Right>
