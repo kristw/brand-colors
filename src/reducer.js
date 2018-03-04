@@ -7,7 +7,7 @@ const reducer = (state = {
   flipped: 0,
   answered: 0,
   score: 0,
-  catalog: new Catalog(brandsData),
+  catalog: new Catalog(brandsData.slice(0, 27)),
   page: 0,
   cells: [],
   actions: [],
