@@ -111,6 +111,11 @@ const H2 = styled.h2`
   margin-top: 0;
 `;
 
+const FBContainer = styled.div`
+  display: inline-block;
+  vertical-align: top;
+`;
+
 class App extends Component {
   componentDidMount() {
     this.props.onInit();
@@ -183,7 +188,7 @@ class App extends Component {
             <div>
               <a
                 href="https://twitter.com/share"
-                class="twitter-share-button"
+                className="twitter-share-button"
                 data-text="Guess companies from the colors"
                 data-via="kristw"
                 data-related="kristw"
@@ -199,6 +204,17 @@ class App extends Component {
                 width="90px"
                 height="20px"
               />
+              <FBContainer>
+                <div
+                  className="fb-like"
+                  data-href="https://kristw.github.io/brand-colors"
+                  data-layout="button_count"
+                  data-action="like"
+                  data-size="small"
+                  data-show-faces="false"
+                  data-share="true"
+                />
+              </FBContainer>
             </div>
             <h1>Guess companies <br /> from the colors</h1>
             <Subtitle>
