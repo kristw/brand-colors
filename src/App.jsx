@@ -37,8 +37,14 @@ const Button = styled.button`
   font-size: 28px;
   padding: 4px 15px 5px 15px;
   font-weight: 700;
-  border: 3px solid #222;
-  background: rgba(0,0,0,0);
+  border: 3px solid #333;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all .3s;
+
+  &:hover {
+    color: #fff;
+    background: #333;
+  }
 `;
 
 const Frame = styled.div`
@@ -91,6 +97,16 @@ const TimerBox = styled.div`
   text-align: left;
 `;
 
+const NextPane = styled.div`
+  position: absolute;
+  top: 10px;
+  bottom: -10px;
+  right: 34px;
+  left: 434px;
+  padding-top: 220px;
+  background-color: rgba(255, 255, 255, 0.75);
+`;
+
 const H2 = styled.h2`
   margin-top: 0;
 `;
@@ -139,9 +155,11 @@ class App extends Component {
     const { catalog, page, answered, onNextPage } = this.props;
     if (catalog.hasNextPage(page) && catalog.hasFinishedPage(page, answered)) {
       return (
-        <Button onClick={() => { onNextPage(page); }}>
-          Next >>
-        </Button>
+        <NextPane>
+          <Button onClick={() => { onNextPage(page); }}>
+            Next >>
+          </Button>
+        </NextPane>
       );
     }
     return null;
@@ -194,7 +212,6 @@ class App extends Component {
               </ScoreBox>
             </Subtitle>
             {this.renderMessage()}
-            {this.renderNext()}
           </Left>
           <Right>
             <Grid
@@ -218,6 +235,7 @@ class App extends Component {
               }}
             />
           </Right>
+          {this.renderNext()}
           <Footer>
             {this.renderChart()}
             &copy; 2018 &mdash;&nbsp;
