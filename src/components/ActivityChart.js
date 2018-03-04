@@ -137,4 +137,3 @@ class AcivityChart extends SvgChart {
 }
 
 export default AcivityChart;
-9

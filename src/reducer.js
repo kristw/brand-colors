@@ -50,6 +50,8 @@ const reducer = (state = {
         };
       }
       break;
+    default:
+      break;
   }
 
   // Add logging
