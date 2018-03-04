@@ -5,7 +5,7 @@ import brandsData from './data/brands.json';
 
 const reducer = (state = {
   flipped: 0,
-  seen: 0,
+  answered: 0,
   score: 0,
   catalog: new Catalog(brandsData),
   page: 0,
@@ -44,7 +44,7 @@ const reducer = (state = {
         newCells[index] = state.cells[index].setScore(score);
         nextState = {
           ...state,
-          seen: state.seen + 1,
+          answered: state.answered + 1,
           score: state.score + score,
           cells: newCells
         };
@@ -62,7 +62,7 @@ const reducer = (state = {
     newActions.push({
       time: new Date(),
       score: state.score,
-      seen: state.seen,
+      answered: state.answered,
       action,
     });
     return { ...nextState, actions: newActions };

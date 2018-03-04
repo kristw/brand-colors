@@ -9,7 +9,7 @@ function mapStateToProps(state) {
     catalog,
     cells,
     flipped,
-    seen,
+    answered,
     score,
     page,
     actions,
@@ -20,9 +20,9 @@ function mapStateToProps(state) {
     catalog,
     cells,
     flipped,
-    seen,
+    answered,
     score,
-    hasUnopened: seen < page * catalog.pageSize,
+    hasUnopened: answered < page * catalog.pageSize,
     hasNextPage: catalog.hasNextPage(page)
   };
 }

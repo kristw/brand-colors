@@ -101,11 +101,8 @@ class App extends Component {
   }
 
   renderNext() {
-    const { catalog, seen, hasUnopened, hasNextPage, onNextPage } = this.props;
-    if (hasNextPage
-      && seen > 0
-      && seen % catalog.pageSize === 0
-      && !hasUnopened) {
+    const { catalog, hasUnopened, hasNextPage, onNextPage } = this.props;
+    if (hasNextPage && !hasUnopened) {
       return (
         <Button onClick={() => { onNextPage(); }}>
           Next >>
@@ -124,7 +121,7 @@ class App extends Component {
       onCellScore,
       onGameEnd,
       flipped,
-      seen,
+      answered,
       score
     } = this.props;
     return (
@@ -139,7 +136,7 @@ class App extends Component {
                 </H2>
               </TimerBox>
               <ScoreBox>
-                <H2>Score: {score}/{seen}</H2>
+                <H2>Score: {score}/{answered}</H2>
               </ScoreBox>
             </Subtitle>
             {flipped === 0
@@ -153,7 +150,7 @@ class App extends Component {
                 </p>
               </div>
               : null}
-            {seen === catalog.brands.length
+            {answered === catalog.brands.length
               ? <p>You made it to the end. Great job!</p>
               : null}
             {this.renderNext()}
@@ -169,12 +166,12 @@ class App extends Component {
               }}
               onCellScore={(index, sc, cell) => {
                 onCellScore(index, sc, cell);
-                if (seen === catalog.brands.length - 1) {
+                if (answered === catalog.brands.length - 1) {
                   this.timer.stop();
                   onGameEnd({
                     time: this.timer.getTime(),
                     score: score + sc,
-                    seen,
+                    answered,
                   });
                 }
               }}

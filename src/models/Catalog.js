@@ -21,8 +21,16 @@ class Catalog {
     return this.brands.slice(start, end);
   }
 
-  hasNextPage(page) {
-    return page * this.pageSize < this.brands.length;
+  hasNextPage(currentPage) {
+    return currentPage * this.pageSize < this.brands.length;
+  }
+
+  hasFinishedPage(currentPage, answered) {
+    return answered === currentPage * this.pageSize;
+  }
+
+  hasEnded(answered) {
+    return answered === this.brands.length;
   }
 }
 
