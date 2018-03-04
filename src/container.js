@@ -52,7 +52,7 @@ function mapDispatchToProps(dispatch) {
       ga('send', 'event', 'build_board', 'next_page');
     },
     onGameEnd(stats) {
-      ga('send', 'event', 'game_end', '', JSON.stringify(stats));
+      ga('send', 'event', 'game_end', '', JSON.stringify(stats), stats.score);
     }
   };
 }
