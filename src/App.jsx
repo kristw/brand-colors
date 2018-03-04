@@ -162,6 +162,26 @@ class App extends Component {
       <Container className="App">
         <Frame>
           <Left>
+            <div>
+              <a
+                href="https://twitter.com/share"
+                class="twitter-share-button"
+                data-text="Guess companies from the colors"
+                data-via="kristw"
+                data-related="kristw"
+                data-hashtags="challenge"
+              >
+                Tweet
+                </a>
+              &nbsp;
+                <iframe
+                src="https://ghbtns.com/github-btn.html?user=kristw&repo=brand-colors&type=star&count=true"
+                frameborder="0"
+                scrolling="0"
+                width="90px"
+                height="20px"
+              />
+            </div>
             <h1>Guess companies <br /> from the colors</h1>
             <Subtitle>
               <TimerBox>
