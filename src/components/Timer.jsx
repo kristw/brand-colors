@@ -34,6 +34,10 @@ class Timer extends React.Component {
     }
   }
 
+  getTime() {
+    return this.state.now;
+  }
+
   render() {
     const { className } = this.props;
     return (

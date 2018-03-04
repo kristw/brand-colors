@@ -16,13 +16,15 @@ const propTypes = {
   onInit: PropTypes.func,
   onNextPage: PropTypes.func,
   onCellClick: PropTypes.func,
+  onGameEnd: PropTypes.func,
 };
 const defaultProps = {
   className: '',
   cells: [],
   onInit() {},
   onNextPage() {},
-  onCellClick() { },
+  onCellClick() {},
+  onGameEnd() {},
 };
 
 const Container = styled.div`
@@ -114,7 +116,17 @@ class App extends Component {
   }
 
   render() {
-    const { actions, catalog, cells, onCellClick, onCellScore, flipped, seen, score } = this.props;
+    const {
+      actions,
+      catalog,
+      cells,
+      onCellClick,
+      onCellScore,
+      onGameEnd,
+      flipped,
+      seen,
+      score
+    } = this.props;
     return (
       <Container className="App">
         <Frame>
@@ -155,11 +167,16 @@ class App extends Component {
                 }
                 onCellClick(index, cell);
               }}
-              onCellScore={(...args) => {
+              onCellScore={(index, sc, cell) => {
+                onCellScore(index, sc, cell);
                 if (seen === catalog.brands.length - 1) {
                   this.timer.stop();
+                  onGameEnd({
+                    time: this.timer.getTime(),
+                    score: score + sc,
+                    seen,
+                  });
                 }
-                onCellScore(...args);
               }}
             />
           </Right>
