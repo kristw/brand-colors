@@ -100,21 +100,55 @@ class App extends Component {
     this.props.onInit();
   }
 
-  renderNext() {
-    const { catalog, hasUnopened, hasNextPage, onNextPage } = this.props;
-    if (hasNextPage && !hasUnopened) {
+  renderChart() {
+    const { actions } = this.props;
+    if (actions.length > 0) {
       return (
-        <Button onClick={() => { onNextPage(); }}>
+        <div>
+          <Legend />
+          <ActivityChart data={actions} />
+        </div>
+      );
+    }
+    return null;
+  }
+
+  renderMessage() {
+    const { flipped, answered, catalog } = this.props;
+    if (flipped === 0) {
+      return(
+        <div>
+          <p>
+            Click on each box to see the choices.
+          </p>
+          <p>
+            There are {catalog.brands.length} companies.<br />
+            Answer as fast as you can!
+          </p>
+        </div>
+      );
+    } else if (catalog.hasEnded(answered)) {
+      return (
+        <p>You made it to the end. Great job!</p>
+      );
+    }
+    return null;
+  }
+
+  renderNext() {
+    const { catalog, page, answered, onNextPage } = this.props;
+    if (catalog.hasNextPage(page) && catalog.hasFinishedPage(page, answered)) {
+      return (
+        <Button onClick={() => { onNextPage(page); }}>
           Next >>
         </Button>
-      )
+      );
     }
     return null;
   }
 
   render() {
     const {
-      actions,
       catalog,
       cells,
       onCellClick,
@@ -139,20 +173,7 @@ class App extends Component {
                 <H2>Score: {score}/{answered}</H2>
               </ScoreBox>
             </Subtitle>
-            {flipped === 0
-              ? <div>
-                <p>
-                  Click on each box to see the choices.
-                </p>
-                <p>
-                  There are {catalog.brands.length} companies.<br/>
-                  Answer as fast as you can!
-                </p>
-              </div>
-              : null}
-            {answered === catalog.brands.length
-              ? <p>You made it to the end. Great job!</p>
-              : null}
+            {this.renderMessage()}
             {this.renderNext()}
           </Left>
           <Right>
@@ -178,12 +199,7 @@ class App extends Component {
             />
           </Right>
           <Footer>
-            {actions.length > 0
-              ? (<div>
-                <Legend />
-                <ActivityChart data={actions} />
-              </div>)
-              : null}
+            {this.renderChart()}
             &copy; 2018 &mdash;&nbsp;
             <a href="http://kristw.yellowpigz.com">Krist Wongsuphasawat</a>
             &nbsp;
