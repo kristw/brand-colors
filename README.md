@@ -9,6 +9,8 @@ Some technical details:
 - Use css 3D transform to add the spinning cube effect.
 - Log user interactions and display in a chart in real-time.
 
+![Brand Colors](src/images/thumbnail.png)
+
 # README from create-react-app
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
