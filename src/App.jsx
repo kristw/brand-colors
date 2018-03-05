@@ -245,7 +245,7 @@ class App extends Component {
                   onGameEnd({
                     time: this.timer.getTime(),
                     score: score + sc,
-                    answered,
+                    answered: answered + 1,
                   });
                 }
               }}
