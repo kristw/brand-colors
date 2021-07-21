@@ -198,6 +198,7 @@ class App extends Component {
                 </a>
               &nbsp;
                 <iframe
+                title="github-stars"
                 src="https://ghbtns.com/github-btn.html?user=kristw&repo=brand-colors&type=star&count=true"
                 frameborder="0"
                 scrolling="0"
