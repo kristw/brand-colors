@@ -2,7 +2,7 @@
   "name": "brand-colors",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://kristw.github.io/brand-colors",
+  "homepage": "https://brand-colors.vercel.app",
   "dependencies": {
     "d3": "^4.13.0",
     "d3-dsv": "^1.0.8",
